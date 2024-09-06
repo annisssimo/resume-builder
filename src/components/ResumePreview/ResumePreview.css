@@ -1,0 +1,7 @@
+.resume-preview {
+  width: 800px;
+  height: 960px;
+  margin: 20px;
+  border: 1px dashed black;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
