@@ -6,10 +6,10 @@ interface InputInfSideProps {
   updatePersonalInfo: (key: keyof PersonalInfo, value: any) => void;
 }
 
-function InputInfSide({updatePersonalInfo}: InputInfSideProps) {
+function InputInfSide({ updatePersonalInfo }: InputInfSideProps) {
   return (
     <div className="left-side">
-      <PersonalDataForm updatePersonalInfo={updatePersonalInfo}/>
+      <PersonalDataForm updatePersonalInfo={updatePersonalInfo} />
     </div>
   );
 }
