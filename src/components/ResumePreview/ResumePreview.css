@@ -1,7 +1,45 @@
 .resume-preview {
-  width: 800px;
+  width: 700px;
   height: 960px;
   margin: 20px;
+  padding-top: 40px;
   border: 1px dashed black;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+.resume-left-side {
+  background-color: #333;
+  width: 256px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 5px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.user-name, .last-name {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+.heading {
+  margin: 60px 0 0 30px;
+}
+
+.photo-container {
+  background-color: white;
+  width: 244px;
+  display: flex;
+  justify-content: center;
+  border-radius: 0 0 50% 50%;
+  padding: 6px;
 }

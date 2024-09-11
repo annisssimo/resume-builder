@@ -7,6 +7,7 @@ interface PersonalDataFormProps {
 }
 
 function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
+  
   const handleChange =
     (key: keyof PersonalInfo) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       updatePersonalInfo(key, event.target.value);
@@ -35,7 +36,7 @@ function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
       <input
         type="text"
         className="post"
-        placeholder="Frontend Developer"
+        placeholder="Job Position"
         onChange={handleChange('jobPosition')}
       />
       <div className="custom-file-upload">

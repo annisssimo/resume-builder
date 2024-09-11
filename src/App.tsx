@@ -3,14 +3,15 @@ import './App.css';
 import InputInfSide from './components/InputInfSide/InputInfSide';
 import ResumePreview from './components/ResumePreview/ResumePreview';
 import { PersonalInfo } from './types/personalInfo';
+import defaultPhoto from '/Users/annisssimo/Desktop/prog-frog/repos/resume-builder/src/assets/default.jpg'
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
-    name: '',
-    lastName: '',
-    jobPosition: '',
-    photo: null,
-    about: '',
+    name: 'Isabel',
+    lastName: 'Schumacher',
+    jobPosition: 'Graphics Designer',
+    photo: defaultPhoto,
+    about: 'As a graphic designer, I strive to create designs that are not only visually appealing but also communicate a message effectively. With [Number of Years] years of experience in the industry, I have worked with clients from various sectors, such as fashion, food, and education. My areas of expertise include logo design, print design, and web design. I take pride in my ability to deliver projects on time and on budget, while maintaining the highest standards of quality.',
   });
 
   const updatePersonalInfo = (key: keyof PersonalInfo, value: any) => {
