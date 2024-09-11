@@ -7,7 +7,6 @@ interface PersonalDataFormProps {
 }
 
 function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
-  
   const handleChange =
     (key: keyof PersonalInfo) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       updatePersonalInfo(key, event.target.value);
