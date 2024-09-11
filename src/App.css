@@ -1,4 +1,11 @@
 .app {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 64px;
+  padding: 40px
+}
+
+.left-side {
+  display: flex;
+  justify-content: center;
 }

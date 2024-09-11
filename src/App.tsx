@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './App.css';
-import InputInfSide from './components/InputInfSide/InputInfSide';
 import ResumePreview from './components/ResumePreview/ResumePreview';
 import { PersonalInfo } from './types/personalInfo';
 import defaultPhoto from '/Users/annisssimo/Desktop/prog-frog/repos/resume-builder/src/assets/default.jpg';
+import PersonalDataForm from './components/PersonalDataForm/PersonalDataForm';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
@@ -21,8 +21,10 @@ function App() {
 
   return (
     <div className="app">
-      <InputInfSide updatePersonalInfo={updatePersonalInfo} />
-      <ResumePreview {...personalInfo} />
+      <PersonalDataForm updatePersonalInfo={updatePersonalInfo} />
+      <div className="left-side">
+        <ResumePreview {...personalInfo} />
+      </div>
     </div>
   );
 }
