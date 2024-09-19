@@ -13,7 +13,7 @@ function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
     };
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ? event.target.files[0] : null;
+    const file = event.target.files ? URL.createObjectURL(event.target.files[0]) : null;
     updatePersonalInfo('photo', file);
   };
 

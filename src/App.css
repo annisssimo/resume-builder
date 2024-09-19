@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   gap: 64px;
-  padding: 40px
+  padding: 40px;
 }
 
-.left-side {
+.right-side {
   display: flex;
   justify-content: center;
 }

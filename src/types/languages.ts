@@ -1,3 +1,3 @@
 export interface Languages {
-    languages: string[];
+  languages: string[];
 }
