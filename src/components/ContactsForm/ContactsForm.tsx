@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
 import { Contacts } from '../../types/contacts';
+import { BiSolidContact } from 'react-icons/bi';
 
 interface ContactsFormProps {
   updateContactInfo: (key: keyof Contacts, value: any) => void;
@@ -13,7 +14,10 @@ const ContactsForm: React.FC<ContactsFormProps> = ({ updateContactInfo }) => {
 
   return (
     <form>
-      <h2 className="card-title">Contact Information</h2>
+      <h2 className="card-title">
+        <BiSolidContact />
+        Contact Information
+      </h2>
       <input
         type="text"
         className="phone"

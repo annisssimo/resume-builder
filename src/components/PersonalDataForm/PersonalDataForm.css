@@ -1,7 +1,6 @@
 form {
-  background-color: #333;
+  background-color: #fff;
   width: 468px;
-  height: 300px;
   border-radius: 20px;
   padding: 20px;
 }
@@ -11,19 +10,25 @@ textarea {
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 10px;
+  border: none;
+  background-color: #7f4ef017;
   border-radius: 8px;
-  width: 200px;
+  width: 430px;
   outline-color: #8e65ed;
+  resize: vertical;
 }
 
-.post, input[accept="image/*"], .about {
-  display: block;
-  width: 430px;
+#firstName,
+#lastName {
+  width: 200px;
 }
 
 .card-title {
-  color: white;
+  color: #333;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .custom-file-upload input[type='file'] {

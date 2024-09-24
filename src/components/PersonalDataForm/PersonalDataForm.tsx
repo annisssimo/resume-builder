@@ -1,6 +1,7 @@
 import { ChangeEvent } from 'react';
 import './PersonalDataForm.css';
 import { PersonalInfo } from '../../types/personalInfo';
+import { MdPerson } from 'react-icons/md';
 
 interface PersonalDataFormProps {
   updatePersonalInfo: (key: keyof PersonalInfo, value: any) => void;
@@ -19,16 +20,14 @@ function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
 
   return (
     <form>
-      <h2 className="card-title">Personal Data</h2>
+      <h2 className="card-title">
+        <MdPerson />
+        Personal Data
+      </h2>
+      <input type="text" id="firstName" placeholder="First Name" onChange={handleChange('name')} />
       <input
         type="text"
-        className="firstName"
-        placeholder="First Name"
-        onChange={handleChange('name')}
-      />
-      <input
-        type="text"
-        className="lastName"
+        id="lastName"
         placeholder="Last Name"
         onChange={handleChange('lastName')}
       />
