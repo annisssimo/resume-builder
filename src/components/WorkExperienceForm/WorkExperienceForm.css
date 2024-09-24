@@ -1,0 +1,11 @@
+.jobs {
+  margin-bottom: 20px;
+}
+
+.jobs div {
+  background-color: #f3f4f6;
+  border-radius: var(--border-rad);
+  padding: 10px 20px;
+  border: 1px dashed var(--purple);
+  margin-right: 20px;
+}

@@ -14,8 +14,12 @@ function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
     };
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ? URL.createObjectURL(event.target.files[0]) : null;
-    updatePersonalInfo('photo', file);
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => updatePersonalInfo('photo', reader.result as string);
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -24,10 +28,15 @@ function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
         <MdPerson />
         Personal Data
       </h2>
-      <input type="text" id="firstName" placeholder="First Name" onChange={handleChange('name')} />
       <input
         type="text"
-        id="lastName"
+        className="small-input"
+        placeholder="First Name"
+        onChange={handleChange('name')}
+      />
+      <input
+        type="text"
+        className="small-input"
         placeholder="Last Name"
         onChange={handleChange('lastName')}
       />

@@ -13,3 +13,42 @@
 .left-side form {
   margin-bottom: 20px;
 }
+
+form {
+  background-color: #fff;
+  width: 468px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+input,
+textarea {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  background-color: var(--purple-background);
+  border-radius: var(--border-rad);
+  width: 430px;
+  outline-color: var(--light-purple);
+  resize: vertical;
+}
+
+.small-input {
+  width: 200px;
+}
+
+.card-title {
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 1000px) {
+  .app {
+    flex-direction: column;
+    align-items: center;
+  }
+}

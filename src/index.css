@@ -16,6 +16,13 @@
     sans-serif;
 }
 
+:root {
+  --purple: #7f4ef0;
+  --light-purple: #8e65ed;
+  --purple-background: #7f4ef017;
+  --border-rad: 8px;
+}
+
 body {
   background-color: #f3f4f6;
 }

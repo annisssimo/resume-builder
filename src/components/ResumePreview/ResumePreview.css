@@ -51,12 +51,20 @@
 }
 
 .left-side-heading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
   margin-top: 30px;
   text-align: left;
+  font-size: 20px;
 }
 
 .left-side-text {
-  font-size: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  word-break: break-all;
 }
 
 .left-section {

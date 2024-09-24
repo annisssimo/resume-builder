@@ -1,8 +1,9 @@
 import { PersonalInfo } from '../../types/personalInfo';
 import './ResumePreview.css';
-import { MdPerson } from 'react-icons/md';
+import { MdEmail, MdPerson } from 'react-icons/md';
 import { BiSolidContact } from 'react-icons/bi';
 import { Contacts } from '../../types/contacts';
+import { FaLinkedinIn, FaPhone } from 'react-icons/fa';
 
 interface ResumePreviewProps {
   personalInfo: PersonalInfo;
@@ -42,9 +43,16 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ personalInfo, contactInfo
             <BiSolidContact />
             Contact
           </h3>
-          <div className="left-side-text">{contactInfo.phone}</div>
-          <div className="left-side-text">{contactInfo.email}</div>
-          <div className="left-side-text">{contactInfo.linkedin}</div>
+          <div className="left-side-text">
+            <FaPhone /> {contactInfo.phone}
+          </div>
+          <div className="left-side-text">
+            <MdEmail /> {contactInfo.email}
+          </div>
+          <div className="left-side-text">
+            <FaLinkedinIn />
+            {contactInfo.linkedin}
+          </div>
         </div>
       </div>
       <div className="right-side">
