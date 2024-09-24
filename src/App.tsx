@@ -50,25 +50,25 @@ function App() {
     setContactInfo((prevInfo) => ({ ...prevInfo, [key]: value }));
   };
 
-  const addNewJob = () => {
-    const newJob: Job = {
-      id: uuidv4(),
-      company: '',
-      position: '',
-      startDate: '',
-      endDate: '',
-      description: '',
-    };
-    if (jobs.some((job) => job.company === '' || job.position === '')) {
-      alert('Please fill out all job fields');
-      return;
-    }
-    setJobs([...jobs, newJob]);
-  };
+  // const addNewJob = () => {
+  //   const newJob: Job = {
+  //     id: uuidv4(),
+  //     company: '',
+  //     position: '',
+  //     startDate: '',
+  //     endDate: '',
+  //     description: '',
+  //   };
+  //   if (jobs.some((job) => job.company === '' || job.position === '')) {
+  //     alert('Please fill out all job fields');
+  //     return;
+  //   }
+  //   setJobs([...jobs, newJob]);
+  // };
 
-  const deleteJob = (id: string) => {
-    setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
-  };
+  // const deleteJob = (id: string) => {
+  //   setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
+  // };
 
   return (
     <div className="app">
@@ -78,7 +78,7 @@ function App() {
         <WorkExperience jobs={jobs} updateWorkExperience={updateWorkExperience} />
       </div>
       <div className="right-side">
-        <ResumePreview personalInfo={personalInfo} contactInfo={contactInfo} />
+        <ResumePreview personalInfo={personalInfo} contactInfo={contactInfo} jobs={jobs}/>
       </div>
     </div>
   );

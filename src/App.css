@@ -5,11 +5,6 @@
   padding: 40px;
 }
 
-.right-side {
-  display: flex;
-  justify-content: center;
-}
-
 .left-side form {
   margin-bottom: 20px;
 }
