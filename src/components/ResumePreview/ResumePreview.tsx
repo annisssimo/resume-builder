@@ -6,9 +6,12 @@ import { Contacts } from '../../types/contacts';
 import { FaLinkedinIn, FaPhone, FaUniversity } from 'react-icons/fa';
 import { Job } from '../../types/job';
 import { Education } from '../../types/education';
+import { FaCubesStacked } from 'react-icons/fa6';
+import { Skills } from '../../types/skills';
 
 interface ResumePreviewProps {
   personalInfo: PersonalInfo;
+  skills: Skills;
   contactInfo: Contacts;
   jobs: Job[];
   education: Education[];
@@ -16,6 +19,7 @@ interface ResumePreviewProps {
 
 const ResumePreview: React.FC<ResumePreviewProps> = ({
   personalInfo,
+  skills,
   contactInfo,
   jobs,
   education,
@@ -45,6 +49,14 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
             About Me
           </h3>
           <div className="left-side-text"> {personalInfo.about}</div>
+        </div>
+
+        <div className="left-section">
+          <h3 className="left-side-heading">
+            <FaCubesStacked />
+            Skills
+          </h3>
+          <div className="left-side-text"> {skills.skills}</div>
         </div>
 
         <div className="left-section">

@@ -11,6 +11,8 @@ import { Job } from './types/job';
 import { v4 as uuidv4 } from 'uuid';
 import { Education } from './types/education';
 import EducationForm from './components/EducationForm/EducationForm';
+import SkillsForm from './components/SkillsForm/SkillsForm';
+import { Skills } from './types/skills';
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
@@ -20,6 +22,11 @@ function App() {
     photo: defaultPhoto,
     about:
       "I'm born to develop responsive user interfaces using React. Easily collaborating with backend engineers to integrate APIs and optimize front-end performance.",
+  });
+
+  const [skills, setSkills] = useState<Skills>({
+    skills:
+      'HTML, CSS, JS, React, React Native, Redux, Next.js, Tailwind, GraphQL, Node.js, Nest.js, Express, RabbitMQ, English B2+',
   });
 
   const [contactInfo, setContactInfo] = useState<Contacts>({
@@ -68,9 +75,13 @@ function App() {
     },
   ]);
 
-  // Update methods for personal info, contact info, and work experience
+  // Update methods
   const updatePersonalInfo = <K extends keyof PersonalInfo>(key: K, value: PersonalInfo[K]) => {
     setPersonalInfo((prevInfo) => ({ ...prevInfo, [key]: value }));
+  };
+
+  const updateSkills = <K extends keyof Skills>(key: K, value: Skills[K]) => {
+    setSkills((prevInfo) => ({ ...prevInfo, [key]: value }));
   };
 
   const updateContactInfo = <K extends keyof Contacts>(key: K, value: Contacts[K]) => {
@@ -91,6 +102,7 @@ function App() {
     <div className="app">
       <div className="left-side">
         <PersonalDataForm updatePersonalInfo={updatePersonalInfo} />
+        <SkillsForm updateSkills={updateSkills} />
         <ContactsForm updateContactInfo={updateContactInfo} />
         <WorkExperienceForm
           jobs={jobs}
@@ -106,6 +118,7 @@ function App() {
       <div className="right-side">
         <ResumePreview
           personalInfo={personalInfo}
+          skills={skills}
           contactInfo={contactInfo}
           jobs={jobs}
           education={education}
