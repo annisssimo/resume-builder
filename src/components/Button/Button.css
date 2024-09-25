@@ -10,7 +10,7 @@ button:hover {
   background-color: var(--purple);
 }
 
-.new-exp-btn {
+.new-btn {
   display: block;
   margin: 0 auto;
 }

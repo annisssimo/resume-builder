@@ -111,11 +111,7 @@ function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperie
         </div>
       )}
 
-      <Button
-        buttonText="+ Experience"
-        className="new-exp-btn"
-        onClick={(event) => addNewJob(event)}
-      />
+      <Button buttonText="+ Experience" className="new-btn" onClick={(event) => addNewJob(event)} />
     </form>
   );
 }

@@ -3,16 +3,23 @@ import './ResumePreview.css';
 import { MdEmail, MdPerson, MdWork } from 'react-icons/md';
 import { BiSolidContact } from 'react-icons/bi';
 import { Contacts } from '../../types/contacts';
-import { FaLinkedinIn, FaPhone } from 'react-icons/fa';
+import { FaLinkedinIn, FaPhone, FaUniversity } from 'react-icons/fa';
 import { Job } from '../../types/job';
+import { Education } from '../../types/education';
 
 interface ResumePreviewProps {
   personalInfo: PersonalInfo;
   contactInfo: Contacts;
   jobs: Job[];
+  education: Education[];
 }
 
-const ResumePreview: React.FC<ResumePreviewProps> = ({ personalInfo, contactInfo, jobs }) => {
+const ResumePreview: React.FC<ResumePreviewProps> = ({
+  personalInfo,
+  contactInfo,
+  jobs,
+  education,
+}) => {
   return (
     <div className="resume-preview">
       <div className="resume-left-side">
@@ -81,6 +88,28 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ personalInfo, contactInfo
                 </i>
               </p>
               <p className="description">{j.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="edu-section">
+          <h3 className="left-side-heading">
+            <FaUniversity />
+            Education
+          </h3>
+
+          {education.map((e) => (
+            <div key={e.id}>
+              <hr />
+              <p className="company-position">
+                {e.degree} at {e.institution}
+              </p>
+              <p className="dates">
+                <i>
+                  {e.startDate} - {e.endDate}
+                </i>
+              </p>
+              <p className="description">{e.description}</p>
             </div>
           ))}
         </div>

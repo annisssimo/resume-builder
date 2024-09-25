@@ -1,0 +1,19 @@
+.education {
+  margin-bottom: 20px;
+}
+
+.education div {
+  background-color: #f3f4f6;
+  border-radius: var(--border-rad);
+  padding: 10px 20px;
+  border: 1px dashed var(--purple);
+  margin: 20px 10px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.education span {
+  width: 380px;
+}
