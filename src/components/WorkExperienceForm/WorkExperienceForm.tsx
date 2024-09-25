@@ -5,10 +5,11 @@ import WorkExperience from '../WorkExperience/WorkExperience';
 import './WorkExperienceForm.css';
 import { v4 as uuidv4 } from 'uuid';
 import { MdWork } from 'react-icons/md';
+import { RxCross2 } from 'react-icons/rx';
 
 interface WorkExperienceFormProps {
   jobs: Job[];
-  setJobs: (jobs: any) => any;
+  setJobs: (jobs: Job[]) => any;
   updateWorkExperience: (id: string, key: keyof Job, value: any) => void;
 }
 
@@ -16,7 +17,9 @@ function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperie
   const [editingJobId, setEditingJobId] = useState<string | null>(null);
   const [tempJobs, setTempJobs] = useState<Job[]>(jobs);
 
-  useEffect(() => console.log(tempJobs));
+  useEffect(() => {
+    setTempJobs(jobs);
+  }, [jobs]);
 
   const handleChange =
     (key: keyof Job) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,6 +61,14 @@ function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperie
     };
 
     setTempJobs((prevJobs) => [...prevJobs, newJob]);
+    setEditingJobId(newJob.id);
+  };
+
+  const deleteJob = (id: string) => {
+    const updatedJobs = tempJobs.filter((job) => job.id !== id);
+    setTempJobs(updatedJobs);
+    setJobs(updatedJobs);
+    setEditingJobId(null);
   };
 
   return (
@@ -67,18 +78,23 @@ function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperie
         Work Experience
       </h2>
 
-      {/* Shows all the companies names of experiences */}
-      {!editingJobId && (
+      {/* Показываем список компаний из опыта */}
+      {!editingJobId && tempJobs.length > 0 && (
         <div className="jobs">
           {tempJobs.map((job) => (
-            <div key={job.id} onClick={() => setEditingJobId(job.id)}>
-              {job.company || 'New Job'}
+            <div key={job.id}>
+              <span onClick={() => setEditingJobId(job.id)}>{job.company || 'New Job'}</span>
+              {/* Иконка удаления */}
+              <RxCross2 onClick={() => deleteJob(job.id)} />
             </div>
           ))}
         </div>
       )}
 
-      {/* Opens editing form */}
+      {/* Если записей нет, показываем сообщение */}
+      {!editingJobId && tempJobs.length === 0 && <div>No jobs to display.</div>}
+
+      {/* Форма редактирования работы */}
       {editingJobId && (
         <div>
           {tempJobs
