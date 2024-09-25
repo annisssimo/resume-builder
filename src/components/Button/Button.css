@@ -4,6 +4,7 @@ button {
   border: none;
   background-color: var(--light-purple);
   color: white;
+  transition: 0.5s ease;
 }
 
 button:hover {
@@ -30,4 +31,40 @@ button:hover {
   position: relative;
   background-color: white;
   border: 2px solid var(--purple);
+}
+
+.download-fixed {
+  color: var(--purple);
+  height: 50px;
+  width: auto;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.download-fixed:hover {
+  height: 60px;
+  width: auto;
+  transition: 0.5s ease;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: transparent;
+  border: 1px solid var(--purple);
+  color: var(--purple);
+}
+
+.download-btn svg {
+  height: 20px;
+  width: auto;
+}
+
+.download-btn:hover {
+  color: white;
 }
