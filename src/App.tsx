@@ -43,7 +43,7 @@ function App() {
       startDate: 'July 2023',
       endDate: 'Present',
       description:
-        'Led a team of developers to create cloud-based solutions for enterprise clients. Improved code efficiency and mentored junior developers on best practices in development.',
+        'Led a cross-functional team of 8 developers in the design and implementation of scalable, cloud-based solutions for enterprise-level clients. Introduced best practices for code review, resulting in a 20% reduction in post-deployment issues. Spearheaded a project that cut cloud infrastructure costs by 30%, leveraging modern cloud-native technologies.',
     },
     {
       id: uuidv4(),
@@ -52,7 +52,16 @@ function App() {
       startDate: 'January 2020',
       endDate: 'June 2023',
       description:
-        'Developed and maintained web applications using React and Node.js. Led the implementation of key features and optimized system performance.',
+        'Contributed to the development and maintenance of high-traffic web applications using React and Node.js. Led the implementation of a major feature that improved user retention by 15%. Collaborated closely with the UX team to enhance overall user experience, resulting in a 10% increase in customer satisfaction scores. Optimized system performance, achieving a 25% reduction in load times across key components.',
+    },
+    {
+      id: uuidv4(),
+      company: 'FutureTech Labs',
+      position: 'Junior Software Engineer',
+      startDate: 'June 2018',
+      endDate: 'December 2019',
+      description:
+        'Assisted senior engineers in developing new features for e-commerce platforms, focusing on improving checkout flow and payment integration. Played a key role in migrating legacy code to a modern, microservices-based architecture, resulting in a 40% improvement in system reliability. Regularly maintained and refactored codebases to ensure adherence to modern development standards and security protocols.',
     },
   ]);
 
