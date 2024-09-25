@@ -1,44 +1,63 @@
-import { MdWork } from 'react-icons/md';
+import { useState, ChangeEvent, useEffect } from 'react';
+import { Job } from '../../types/job';
 import Button from '../Button/Button';
-import { ChangeEvent, useState } from 'react';
 import WorkExperience from '../WorkExperience/WorkExperience';
 import './WorkExperienceForm.css';
-import { Job } from '../../types/job';
+import { v4 as uuidv4 } from 'uuid';
+import { MdWork } from 'react-icons/md';
 
 interface WorkExperienceFormProps {
   jobs: Job[];
+  setJobs: (jobs: any) => any;
   updateWorkExperience: (id: string, key: keyof Job, value: any) => void;
 }
 
-function WorkExperienceForm({ jobs, updateWorkExperience }: WorkExperienceFormProps) {
-  const [isHidden, setIsHidden] = useState<boolean>(true);
+function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperienceFormProps) {
+  const [editingJobId, setEditingJobId] = useState<string | null>(null);
+  const [tempJobs, setTempJobs] = useState<Job[]>(jobs);
+
+  useEffect(() => console.log(tempJobs));
 
   const handleChange =
-    (id: string, key: keyof Job) =>
-    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      updateWorkExperience(id, key, event.target.value);
+    (key: keyof Job) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      if (editingJobId) {
+        const updatedJobs = tempJobs.map((job) =>
+          job.id === editingJobId ? { ...job, [key]: event.target.value } : job
+        );
+        setTempJobs(updatedJobs);
+      }
     };
 
-  const showWorkFields = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setIsHidden(false);
+  const saveWork = (id: string) => {
+    const jobToSave = tempJobs.find((job) => job.id === id);
+    if (jobToSave) {
+      Object.keys(jobToSave).forEach((key) => {
+        updateWorkExperience(id, key as keyof Job, jobToSave[key as keyof Job]);
+      });
+    }
+
+    setJobs(tempJobs);
+    setEditingJobId(null);
   };
 
-  const showEmptyFields = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setIsHidden(false);
-    console.log('showEmptyFields');
+  const cancel = () => {
+    setTempJobs(jobs);
+    setEditingJobId(null);
   };
 
-  const cancel = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setIsHidden(true);
-  };
-
-  const saveWork = (event: React.MouseEvent) => {
+  const addNewJob = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.preventDefault();
 
-    setIsHidden(true);
+    const newJob: Job = {
+      id: uuidv4(),
+      company: '',
+      position: '',
+      startDate: '',
+      endDate: '',
+      description: '',
+    };
+
+    setTempJobs((prevJobs) => [...prevJobs, newJob]);
   };
 
   return (
@@ -47,31 +66,40 @@ function WorkExperienceForm({ jobs, updateWorkExperience }: WorkExperienceFormPr
         <MdWork />
         Work Experience
       </h2>
-      {!isHidden && (
-        <div>
-          {jobs.map((job) => (
-            <WorkExperience
-              key={job.id}
-              job={job}
-              onCancel={cancel}
-              onSave={saveWork}
-              onChange={handleChange}
-            />
-          ))}
-        </div>
-      )}
-      {isHidden && (
+
+      {/* Shows all the companies names of experiences */}
+      {!editingJobId && (
         <div className="jobs">
-          {jobs.map((job) => (
-            <div key={job.id} onClick={showWorkFields}>
-              {job.company}
+          {tempJobs.map((job) => (
+            <div key={job.id} onClick={() => setEditingJobId(job.id)}>
+              {job.company || 'New Job'}
             </div>
           ))}
         </div>
       )}
-      {isHidden && (
-        <Button buttonText="+ Experience" className="new-exp-btn" onClick={showEmptyFields} />
+
+      {/* Opens editing form */}
+      {editingJobId && (
+        <div>
+          {tempJobs
+            .filter((job) => job.id === editingJobId)
+            .map((job) => (
+              <WorkExperience
+                key={job.id}
+                job={job}
+                onCancel={() => cancel()}
+                onSave={() => saveWork(job.id)}
+                onChange={handleChange}
+              />
+            ))}
+        </div>
       )}
+
+      <Button
+        buttonText="+ Experience"
+        className="new-exp-btn"
+        onClick={(event) => addNewJob(event)}
+      />
     </form>
   );
 }

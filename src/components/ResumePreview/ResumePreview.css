@@ -70,3 +70,15 @@
 .left-section {
   padding: 16px;
 }
+
+.company-position {
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.description,
+.dates {
+  font-size: 14px;
+}

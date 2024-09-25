@@ -21,16 +21,11 @@ button:hover {
 
 .cancel-btn {
   margin-left: 180px;
-}
-
-.delete-btn,
-.cancel-btn {
   background-color: white;
   border: 1px solid var(--purple);
   color: var(--purple);
 }
 
-.delete-btn:hover,
 .cancel-btn:hover {
   position: relative;
   background-color: white;

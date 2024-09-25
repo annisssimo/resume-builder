@@ -1,11 +1,10 @@
 import { PersonalInfo } from '../../types/personalInfo';
 import './ResumePreview.css';
-import { MdEmail, MdPerson } from 'react-icons/md';
+import { MdEmail, MdPerson, MdWork } from 'react-icons/md';
 import { BiSolidContact } from 'react-icons/bi';
 import { Contacts } from '../../types/contacts';
 import { FaLinkedinIn, FaPhone } from 'react-icons/fa';
 import { Job } from '../../types/job';
-import { MdWork } from 'react-icons/md';
 
 interface ResumePreviewProps {
   personalInfo: PersonalInfo;
@@ -71,13 +70,19 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ personalInfo, contactInfo
             Work experience
           </h3>
           {jobs.map((j) => (
-              <div key={j.id}>
-                <p>{j.company}</p>
-                <p>{j.position}</p>
-                <p>{j.startDate} - {j.endDate}</p>
-                <p>{j.description}</p>
-              </div>
-            ))}
+            <div key={j.id}>
+              <hr />
+              <p className="company-position">
+                {j.position} at {j.company}
+              </p>
+              <p className="dates">
+                <i>
+                  {j.startDate} - {j.endDate}
+                </i>
+              </p>
+              <p className="description">{j.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

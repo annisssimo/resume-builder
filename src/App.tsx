@@ -6,7 +6,7 @@ import defaultPhoto from '/Users/annisssimo/Desktop/prog-frog/repos/resume-build
 import PersonalDataForm from './components/PersonalDataForm/PersonalDataForm';
 import ContactsForm from './components/ContactsForm/ContactsForm';
 import { Contacts } from './types/contacts';
-import WorkExperience from './components/WorkExperienceForm/WorkExperienceForm';
+import WorkExperienceForm from './components/WorkExperienceForm/WorkExperienceForm';
 import { Job } from './types/job';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -38,47 +38,32 @@ function App() {
     },
   ]);
 
+  // Update methods for personal info, contact info, and work experience
   const updatePersonalInfo = <K extends keyof PersonalInfo>(key: K, value: PersonalInfo[K]) => {
     setPersonalInfo((prevInfo) => ({ ...prevInfo, [key]: value }));
-  };
-
-  const updateWorkExperience = (id: string, key: keyof Job, value: Job[keyof Job]) => {
-    setJobs((prevJobs) => prevJobs.map((job) => (job.id === id ? { ...job, [key]: value } : job)));
   };
 
   const updateContactInfo = <K extends keyof Contacts>(key: K, value: Contacts[K]) => {
     setContactInfo((prevInfo) => ({ ...prevInfo, [key]: value }));
   };
 
-  // const addNewJob = () => {
-  //   const newJob: Job = {
-  //     id: uuidv4(),
-  //     company: '',
-  //     position: '',
-  //     startDate: '',
-  //     endDate: '',
-  //     description: '',
-  //   };
-  //   if (jobs.some((job) => job.company === '' || job.position === '')) {
-  //     alert('Please fill out all job fields');
-  //     return;
-  //   }
-  //   setJobs([...jobs, newJob]);
-  // };
-
-  // const deleteJob = (id: string) => {
-  //   setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
-  // };
+  const updateWorkExperience = (id: string, key: keyof Job, value: Job[keyof Job]) => {
+    setJobs((prevJobs) => prevJobs.map((job) => (job.id === id ? { ...job, [key]: value } : job)));
+  };
 
   return (
     <div className="app">
       <div className="left-side">
         <PersonalDataForm updatePersonalInfo={updatePersonalInfo} />
         <ContactsForm updateContactInfo={updateContactInfo} />
-        <WorkExperience jobs={jobs} updateWorkExperience={updateWorkExperience} />
+        <WorkExperienceForm
+          jobs={jobs}
+          setJobs={setJobs}
+          updateWorkExperience={updateWorkExperience}
+        />
       </div>
       <div className="right-side">
-        <ResumePreview personalInfo={personalInfo} contactInfo={contactInfo} jobs={jobs}/>
+        <ResumePreview personalInfo={personalInfo} contactInfo={contactInfo} jobs={jobs} />
       </div>
     </div>
   );
