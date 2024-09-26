@@ -74,6 +74,12 @@
   word-break: break-word;
 }
 
+.left-side-text svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
 .company-position {
   margin-top: 20px;
   font-family: Arial, sans-serif;
