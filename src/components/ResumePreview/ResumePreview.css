@@ -52,6 +52,11 @@
   padding: 6px;
 }
 
+.left-section {
+  padding: 16px;
+  width: 224px;
+}
+
 .left-side-heading {
   display: flex;
   gap: 10px;
@@ -66,11 +71,7 @@
   gap: 10px;
   align-items: center;
   font-size: 14px;
-  word-break: break-all;
-}
-
-.left-section {
-  padding: 16px;
+  word-break: break-word;
 }
 
 .company-position {
@@ -83,4 +84,5 @@
 .description,
 .dates {
   font-size: 14px;
+  word-break: break-word;
 }
