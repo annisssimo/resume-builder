@@ -1,10 +1,7 @@
 import { ChangeEvent } from 'react';
 import { Contacts } from '../../types/contacts';
 import { BiSolidContact } from 'react-icons/bi';
-
-interface ContactsFormProps {
-  updateContactInfo: (key: keyof Contacts, value: any) => void;
-}
+import { ContactsFormProps } from './types';
 
 const ContactsForm: React.FC<ContactsFormProps> = ({ updateContactInfo }) => {
   const handleChange =

@@ -1,24 +1,12 @@
-import React, { useRef } from 'react';
-import { PersonalInfo } from '../../types/personalInfo';
+import { useRef } from 'react';
 import './ResumePreview.css';
 import { MdEmail, MdPerson, MdWork } from 'react-icons/md';
-import { BiSolidContact } from 'react-icons/bi';
-import { Contacts } from '../../types/contacts';
 import { FaLinkedinIn, FaPhone, FaUniversity } from 'react-icons/fa';
-import { Job } from '../../types/job';
-import { Education } from '../../types/education';
 import { FaCubesStacked } from 'react-icons/fa6';
-import { Skills } from '../../types/skills';
 import html2pdf from 'html2pdf.js';
 import { IoMdCloudDownload } from 'react-icons/io';
-
-interface ResumePreviewProps {
-  personalInfo: PersonalInfo;
-  skills: Skills;
-  contactInfo: Contacts;
-  jobs: Job[];
-  education: Education[];
-}
+import { ResumePreviewProps } from './types';
+import { BiSolidContact } from 'react-icons/bi';
 
 const ResumePreview: React.FC<ResumePreviewProps> = ({
   personalInfo,

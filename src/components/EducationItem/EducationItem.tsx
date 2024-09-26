@@ -1,15 +1,6 @@
-import { Education } from '../../types/education';
 import Button from '../Button/Button';
 import './EducationItem.css';
-
-interface EducationItemProps {
-  education: Education;
-  onCancel: () => void;
-  onSave: () => void;
-  onChange: (
-    key: keyof Education
-  ) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-}
+import { EducationItemProps } from './types';
 
 function EducationItem({ education, onCancel, onSave, onChange }: EducationItemProps) {
   return (

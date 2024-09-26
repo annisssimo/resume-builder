@@ -1,10 +1,7 @@
 import { ChangeEvent } from 'react';
 import { Skills } from '../../types/skills';
 import { FaCubesStacked } from 'react-icons/fa6';
-
-interface SkillsFormProps {
-  updateSkills: (key: keyof Skills, value: any) => void;
-}
+import { SkillsFormProps } from './types';
 
 const SkillsForm: React.FC<SkillsFormProps> = ({ updateSkills }) => {
   const handleChange =

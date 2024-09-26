@@ -6,12 +6,7 @@ import './EducationForm.css';
 import { v4 as uuidv4 } from 'uuid';
 import { MdSchool } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
-
-interface EducationFormProps {
-  education: Education[];
-  setEducation: (education: Education[]) => void;
-  updateEducation: (id: string, key: keyof Education, value: any) => void;
-}
+import { EducationFormProps } from './types';
 
 function EducationForm({ education, setEducation, updateEducation }: EducationFormProps) {
   const [editingEducationId, setEditingEducationId] = useState<string | null>(null);

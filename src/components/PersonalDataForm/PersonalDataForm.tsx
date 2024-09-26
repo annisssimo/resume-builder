@@ -2,10 +2,7 @@ import { ChangeEvent } from 'react';
 import './PersonalDataForm.css';
 import { PersonalInfo } from '../../types/personalInfo';
 import { MdPerson } from 'react-icons/md';
-
-interface PersonalDataFormProps {
-  updatePersonalInfo: (key: keyof PersonalInfo, value: any) => void;
-}
+import { PersonalDataFormProps } from './types';
 
 function PersonalDataForm({ updatePersonalInfo }: PersonalDataFormProps) {
   const handleChange =

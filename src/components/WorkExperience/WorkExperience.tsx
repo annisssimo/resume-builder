@@ -1,15 +1,6 @@
-import { Job } from '../../types/job';
 import Button from '../Button/Button';
 import './WorkExperience.css';
-
-interface WorkExperienceProps {
-  job: Job;
-  onCancel: () => void;
-  onSave: () => void;
-  onChange: (
-    key: keyof Job
-  ) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-}
+import { WorkExperienceProps } from './types';
 
 function WorkExperience({ job, onCancel, onSave, onChange }: WorkExperienceProps) {
   return (

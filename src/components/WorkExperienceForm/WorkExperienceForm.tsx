@@ -6,12 +6,7 @@ import './WorkExperienceForm.css';
 import { v4 as uuidv4 } from 'uuid';
 import { MdWork } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
-
-interface WorkExperienceFormProps {
-  jobs: Job[];
-  setJobs: (jobs: Job[]) => any;
-  updateWorkExperience: (id: string, key: keyof Job, value: any) => void;
-}
+import { WorkExperienceFormProps } from './types';
 
 function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperienceFormProps) {
   const [editingJobId, setEditingJobId] = useState<string | null>(null);

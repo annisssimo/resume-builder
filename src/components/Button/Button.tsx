@@ -1,10 +1,5 @@
 import './Button.css';
-
-interface ButtonPropTypes {
-  buttonText: string;
-  className: string;
-  onClick: (event: React.MouseEvent) => void;
-}
+import { ButtonPropTypes } from './types.ts';
 
 function Button({ buttonText, className, onClick }: ButtonPropTypes) {
   return (
