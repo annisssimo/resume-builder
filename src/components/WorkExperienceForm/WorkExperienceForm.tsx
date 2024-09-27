@@ -7,8 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { MdWork } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
 import { WorkExperienceFormProps } from './types';
+import { saveData } from '../../utils';
 
-function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperienceFormProps) {
+function WorkExperienceForm({ jobs, setJobs }: WorkExperienceFormProps) {
   const [editingJobId, setEditingJobId] = useState<string | null>(null);
   const [tempJobs, setTempJobs] = useState<Job[]>(jobs);
 
@@ -29,12 +30,9 @@ function WorkExperienceForm({ jobs, setJobs, updateWorkExperience }: WorkExperie
   const saveWork = (id: string) => {
     const jobToSave = tempJobs.find((job) => job.id === id);
     if (jobToSave) {
-      Object.keys(jobToSave).forEach((key) => {
-        updateWorkExperience(id, key as keyof Job, jobToSave[key as keyof Job]);
-      });
+      saveData(tempJobs, setJobs, id, jobToSave);
     }
 
-    setJobs(tempJobs);
     setEditingJobId(null);
   };
 

@@ -5,10 +5,10 @@ import { FaLinkedinIn, FaPhone, FaUniversity } from 'react-icons/fa';
 import { FaCubesStacked } from 'react-icons/fa6';
 import html2pdf from 'html2pdf.js';
 import { IoMdCloudDownload } from 'react-icons/io';
-import { ResumePreviewProps } from './types';
+import { ResumeData } from '../../types/resumeData';
 import { BiSolidContact } from 'react-icons/bi';
 
-const ResumePreview: React.FC<ResumePreviewProps> = ({
+const ResumePreview: React.FC<ResumeData> = ({
   personalInfo,
   skills,
   contactInfo,
@@ -36,7 +36,6 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
     <div>
       <IoMdCloudDownload onClick={downloadResume} className="download-fixed" />
       <div className="resume-preview" ref={resumeRef}>
-        {/* Ваш контент резюме */}
         <div className="resume-left-side">
           <div className="photo-container">
             {personalInfo.photo ? (
@@ -67,7 +66,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({
               <FaCubesStacked />
               Skills
             </h3>
-            <div className="left-side-text"> {skills.skills}</div>
+            <div className="left-side-text"> {skills}</div>
           </div>
 
           <div className="left-section">

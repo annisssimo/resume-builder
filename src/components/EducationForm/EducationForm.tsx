@@ -7,8 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { MdSchool } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
 import { EducationFormProps } from './types';
+import { saveData } from '../../utils';
 
-function EducationForm({ education, setEducation, updateEducation }: EducationFormProps) {
+function EducationForm({ education, setEducation }: EducationFormProps) {
   const [editingEducationId, setEditingEducationId] = useState<string | null>(null);
   const [tempEducation, setTempEducation] = useState<Education[]>(education);
 
@@ -29,12 +30,9 @@ function EducationForm({ education, setEducation, updateEducation }: EducationFo
   const saveEducation = (id: string) => {
     const educationToSave = tempEducation.find((edu) => edu.id === id);
     if (educationToSave) {
-      Object.keys(educationToSave).forEach((key) => {
-        updateEducation(id, key as keyof Education, educationToSave[key as keyof Education]);
-      });
+      saveData(tempEducation, setEducation, id, educationToSave);
     }
 
-    setEducation(tempEducation);
     setEditingEducationId(null);
   };
 
